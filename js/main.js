@@ -11,7 +11,11 @@ let sigils = document.querySelectorAll('.sigilContainer'),
     closeLightBoxButton = document.querySelector('.close-lightbox'),
     vidPlayer = document.querySelector('video'),
     vidControls = document.querySelector('.controls'),
-    imageBanner = document.querySelector('#houseImages');
+    imageBanner = document.querySelector('#houseImages'),
+    info = document.querySelector('.house-info');
+
+
+
 //functions in the middle
 
 
