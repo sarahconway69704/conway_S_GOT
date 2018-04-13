@@ -14,6 +14,8 @@ let sigils = document.querySelectorAll('.sigilContainer'),
     imageBanner = document.querySelector('#houseImages');
 
 
+
+
 var info = [
   //Stark
   `House Stark of Winterfell is a Great House of Westeros,
@@ -55,30 +57,44 @@ var info = [
   `House Targaryen of Dragonstone is a Great House of Westeros and was the ruling royal House of the Seven Kingdoms for three centuries since it conquered and unified the realm, before it was deposed during Robert's Rebellion and House Baratheon replaced it as the new royal House. The few surviving Targaryens fled into exile to the Free Cities of Essos across the Narrow Sea. Currently based on Dragonstone off of the eastern coast of Westeros, House Targaryen seeks to retake the Seven Kingdoms from House Lannister, who formally replaced House Baratheon as the royal House following the destruction of the Great Sept of Baelor.`
 ];
 
-
+video = [
+  `video/House-Stark.mp4`,
+  `video/House-Baratheon.mp4`,
+  `video/House-Lannister.mp4`,
+  `video/House-Tully.mp4`,
+  `video/House-Greyjoy.mp4`,
+  `video/House-Arryn.mp4`,
+  `video/House-Frey.mp4`,
+  `video/House-Targaryen.mp4`
+]
 //functions in the middle
 
 
-function showHouseVideo(){
+function scrollBanners() {
+  //move the banner images to the left
   let houseName = this.className.split(' ')[1].capIt();
+  offset = this.dataset.offset;
+   let moveIt = offset * 600 + "px";
+   imageBanner.style.right = moveIt;
 
-  document.querySelector('h1').textContent = `House ${houseName}`;
-  document.querySelector('.info').textContent = `${info[0]}`;
-    //debugger;
+
+document.querySelector('.info').textContent = `${info[offset]}`;
+document.querySelector('h1').textContent = `House ${houseName}`;
+
+
+}
+
+function showHouseVideo(){
+
+
+//debugger;
   lightbox.classList.add('show-lightbox');
-  vidPlayer.src = `video/House-${houseName}.${vidPlayer.currentSrc.split('.')[1]}`;
+
+  vidPlayer.src = video[offset];
   vidPlayer.load();
   //make it play
   vidPlayer.play();
 
-  scrollBanners(this.dataset.offset);
-
-}
-
-function scrollBanners(offset) {
-  //move the banner images to the left
-   let moveIt = offset * 600 + "px";
-   imageBanner.style.right = moveIt;
 }
 
 
@@ -104,10 +120,16 @@ if (vidPlayer.paused == true){
 
 }
 
+
+
+
+
 // event handling at the bottom
 
-sigils.forEach(sigil => sigil.addEventListener('click', showHouseVideo));
+sigils.forEach(sigil => sigil.addEventListener('click', scrollBanners));
 closeLightBoxButton.addEventListener('click', closeLightBox);
 vidPlayer.addEventListener('ended', closeLightBox);
 vidControls.addEventListener('click', pausePlay);
+imageBanner.addEventListener('transitionend', showHouseVideo);
+
 })();

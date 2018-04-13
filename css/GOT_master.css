@@ -30,10 +30,13 @@ main {
 
 p
 {
-  font-family: 'GOT_font';
+  font-family: Times New Roman;
 	color:white;
-	margin-top:30px;
-	font-size:1.25em;
+	margin-top: 30px;
+  margin-left: 240px;
+	font-size: 1.2em;
+  width: 500px;
+  line-height: 30px;
 }
 
 #imageContainer {
@@ -163,4 +166,5 @@ video {
   font-size: 3em;
   color: white;
   curser: pointer;
+  
 }
