@@ -28,6 +28,17 @@ main {
 	top:30px;
 }
 
+p
+{
+  font-family: Times New Roman;
+	color:white;
+	margin-top: 30px;
+  margin-left: 240px;
+	font-size: 1.2em;
+  width: 500px;
+  line-height: 30px;
+}
+
 #imageContainer {
 	width:600px;
 	height:360px;
@@ -155,4 +166,5 @@ video {
   font-size: 3em;
   color: white;
   curser: pointer;
+  
 }
